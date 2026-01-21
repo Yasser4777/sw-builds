@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Plumbing Services - SW Builds & Plumbing</title>
+  <meta name="description" content="Expert plumbing services including installations, repairs, maintenance, and 24/7 emergency callouts. Gas Safe registered plumbers across the Southwest." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    /* --- Basic reset --- */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f3f4f6;
+      color: #111827;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1rem; }
+
+    /* Top bar */
+    .top-bar {
+      background: #111827;
+      color: white;
+      font-size: 0.85rem;
+      padding: 0.4rem 0;
+    }
+    .top-bar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .emergency-phone {
+      font-size: 1.1rem;
+      font-weight: 700;
+      background: #dc2626;
+      padding: 0.4rem 0.8rem;
+      border-radius: 0.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      white-space: nowrap;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.9; }
+    }
+    .emergency-phone:hover {
+      background: #b91c1c;
+      transform: scale(1.05);
+      transition: all 0.2s;
+    }
+
+    /* Header */
+    header {
+      background: white;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.1);
+    }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0;
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #1f2937;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .logo img {
+      height: 5rem;
+      width: auto;
+      object-fit: contain;
+      display: block;
+      max-height: 5rem;
+    }
+    .logo-text {
+      display: block;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1f2937;
+      white-space: nowrap;
+    }
+    nav {
+      display: none;
+    }
+    nav a {
+      margin-left: 1rem;
+      font-size: 0.9rem;
+      color: #4b5563;
+    }
+    nav a:hover {
+      color: #0ea5e9;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: white;
+      padding: 4rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="none"/><path d="M0 50 L100 50" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></svg>');
+      opacity: 0.3;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: #e5e7eb;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .button-primary {
+      border: none;
+      background: #dc2626;
+      color: white;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.75rem 2rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s;
+    }
+    .button-primary:hover {
+      background: #b91c1c;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+    }
+    .hero-phone {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: #dc2626;
+      border: 2px solid #dc2626;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      font-weight: 700;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .hero-phone:hover {
+      background: #b91c1c;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4);
+    }
+
+    /* Section */
+    .section {
+      padding: 3rem 0;
+    }
+    .section h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #111827;
+    }
+    .section p.section-subtitle {
+      font-size: 1rem;
+      color: #4b5563;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    /* Benefits */
+    .benefits-section {
+      background: white;
+    }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    .benefit-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 1.5rem;
+      background: #f9fafb;
+      border-radius: 0.75rem;
+    }
+    .benefit-icon {
+      width: 3rem;
+      height: 3rem;
+      background: #0ea5e9;
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.5rem;
+      color: white;
+    }
+    .benefit-content h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #111827;
+    }
+    .benefit-content p {
+      font-size: 0.95rem;
+      color: #4b5563;
+      line-height: 1.6;
+    }
+
+    /* Projects */
+    .projects-section {
+      background: #f9fafb;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .project-card {
+      background: white;
+      border-radius: 0.75rem;
+      padding: 2rem;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    .project-card h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: #111827;
+    }
+    .project-location {
+      font-size: 0.9rem;
+      color: #6b7280;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+    .project-description {
+      font-size: 0.95rem;
+      color: #4b5563;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+    .project-details {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e5e7eb;
+    }
+    .project-detail-item {
+      font-size: 0.9rem;
+    }
+    .project-detail-label {
+      color: #6b7280;
+      font-weight: 500;
+    }
+    .project-detail-value {
+      color: #111827;
+      font-weight: 600;
+      margin-top: 0.25rem;
+    }
+
+    /* Footer */
+    footer {
+      background: #111827;
+      color: white;
+      padding: 3rem 0 1.5rem;
+    }
+    .footer-content {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    .footer-section h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .footer-section ul {
+      list-style: none;
+    }
+    .footer-section ul li {
+      margin-bottom: 0.5rem;
+    }
+    .footer-section a {
+      color: #9ca3af;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .footer-section a:hover {
+      color: white;
+    }
+    .footer-bottom {
+      border-top: 1px solid #374151;
+      padding-top: 1.5rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #9ca3af;
+    }
+
+    /* Mobile menu */
+    .mobile-menu-toggle {
+      display: block;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: #111827;
+      cursor: pointer;
+    }
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 1rem 0;
+      border-top: 1px solid #e5e7eb;
+    }
+    .mobile-nav.active {
+      display: flex;
+    }
+    .mobile-nav a {
+      padding: 0.5rem 0;
+      color: #4b5563;
+    }
+
+    /* Responsiveness */
+    @media (min-width: 768px) {
+      nav { display: block; }
+      .mobile-menu-toggle { display: none; }
+      .benefits-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .footer-content {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+      .hero h1 { font-size: 3.5rem; }
+      .hero p { font-size: 1.25rem; }
+      .section { padding: 4rem 0; }
+      .hero { padding: 5rem 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top bar -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <span>24/7 emergencies • Same rates 7 days a week</span>
+      <a href="tel:02000000000" class="emergency-phone">
+        📞 0200 000 0000
+      </a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <img src="logo.png" alt="SW Builds & Plumbing" />
+        <span class="logo-text">SW Builds & Plumbing</span>
+      </a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
+    </div>
+    <div class="container">
+      <nav class="mobile-nav" id="mobileNav">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <h1>Expert Plumbing Services</h1>
+      <p>
+        Complete plumbing solutions for residential and commercial properties. From emergency repairs to 
+        new installations, our Gas Safe registered plumbers provide reliable, professional service 24/7.
+      </p>
+      <div class="hero-cta">
+        <a href="index.html#contact" class="button-primary">Get a Quote</a>
+        <a href="tel:02000000000" class="hero-phone">📞 0200 000 0000</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="section benefits-section">
+    <div class="container">
+      <h2>Benefits of Our Plumbing Services</h2>
+      <p class="section-subtitle">
+        Why choose SW Builds & Plumbing for all your plumbing needs.
+      </p>
+      <div class="benefits-grid">
+        <div class="benefit-item">
+          <div class="benefit-icon">⚡</div>
+          <div class="benefit-content">
+            <h3>24/7 Emergency Service</h3>
+            <p>Available around the clock for urgent plumbing emergencies. Fast response times to minimize damage and disruption to your home or business.</p>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">✓</div>
+          <div class="benefit-content">
+            <h3>Gas Safe Registered</h3>
+            <p>All our plumbers are Gas Safe registered and fully qualified. We handle all gas work safely and in compliance with regulations.</p>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">🔧</div>
+          <div class="benefit-content">
+            <h3>Comprehensive Solutions</h3>
+            <p>From leak repairs and blocked drains to complete new installations and boiler services. We handle all aspects of plumbing work.</p>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">💼</div>
+          <div class="benefit-content">
+            <h3>25+ Years Experience</h3>
+            <p>Decades of experience means we've seen and solved every plumbing problem. Trust our expertise for reliable, lasting solutions.</p>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">💰</div>
+          <div class="benefit-content">
+            <h3>Transparent Pricing</h3>
+            <p>Clear, upfront quotes with no hidden costs. We provide honest pricing and work within agreed budgets.</p>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">🛡️</div>
+          <div class="benefit-content">
+            <h3>Fully Insured & Guaranteed</h3>
+            <p>All work is fully insured and comes with comprehensive guarantees. We stand behind our craftsmanship.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Previous Projects -->
+  <section class="section projects-section">
+    <div class="container">
+      <h2>Previous Plumbing Projects</h2>
+      <p class="section-subtitle">
+        Examples of our recent plumbing work across the Southwest.
+      </p>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>Complete Bathroom Plumbing Installation</h3>
+          <div class="project-location">📍 London, SW1</div>
+          <p class="project-description">
+            Full plumbing installation for a new bathroom including all pipework, fixtures, and connections. 
+            Installed new boiler connection, hot and cold water supply, waste systems, and luxury bathroom 
+            fittings. Project completed on time with minimal disruption.
+          </p>
+          <div class="project-details">
+            <div class="project-detail-item">
+              <div class="project-detail-label">Project Type</div>
+              <div class="project-detail-value">New Installation</div>
+            </div>
+            <div class="project-detail-item">
+              <div class="project-detail-label">Duration</div>
+              <div class="project-detail-value">3 Days</div>
+            </div>
+            <div class="project-detail-item">
+              <div class="project-detail-label">Services</div>
+              <div class="project-detail-value">Full Plumbing</div>
+            </div>
+            <div class="project-detail-item">
+              <div class="project-detail-label">Client Rating</div>
+              <div class="project-detail-value">★★★★★</div>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3>Emergency Boiler Repair & System Upgrade</h3>
+          <div class="project-location">📍 London, W1</div>
+          <p class="project-description">
+            Emergency callout for boiler failure during winter. Diagnosed and repaired the issue, then 
+            upgraded the entire heating system for improved efficiency. Installed new radiators and 
+            upgraded pipework throughout the property.
+          </p>
+          <div class="project-details">
+            <div class="project-detail-item">
+              <div class="project-detail-label">Project Type</div>
+              <div class="project-detail-value">Emergency Repair</div>
+            </div>
+            <div class="project-detail-item">
+              <div class="project-detail-label">Response Time</div>
+              <div class="project-detail-value">2 Hours</div>
+            </div>
+            <div class="project-detail-item">
+              <div class="project-detail-label">Services</div>
+              <div class="project-detail-value">Boiler & Heating</div>
+            </div>
+            <div class="project-detail-item">
+              <div class="project-detail-label">Client Rating</div>
+              <div class="project-detail-value">★★★★★</div>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3>Commercial Kitchen Plumbing Refit</h3>
+          <div class="project-location">📍 London, N1</div>
+          <p class="project-description">
+            Complete plumbing refit for a commercial kitchen including new water supply lines, drainage 
+            systems, and commercial-grade fixtures. Work completed outside business hours to minimize 
+            disruption. All work complied with commercial building regulations.
+          </p>
+          <div class="project-details">
+            <div class="project-detail-item">
+              <div class="project-detail-label">Project Type</div>
+              <div class="project-detail-value">Commercial Refit</div>
+            </div>
+            <div class="project-detail-item">
+              <div class="project-detail-label">Duration</div>
+              <div class="project-detail-value">5 Days</div>
+            </div>
+            <div class="project-detail-item">
+              <div class="project-detail-label">Services</div>
+              <div class="project-detail-value">Commercial Plumbing</div>
+            </div>
+            <div class="project-detail-item">
+              <div class="project-detail-label">Client Rating</div>
+              <div class="project-detail-value">★★★★★</div>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3>Blocked Drain Clearance & CCTV Survey</h3>
+          <div class="project-location">📍 London, E1</div>
+          <p class="project-description">
+            Emergency callout for severe blocked drain affecting multiple properties. Used high-pressure 
+            jetting to clear the blockage, then conducted CCTV survey to identify root cause. Repaired 
+            damaged pipework and installed preventative measures.
+          </p>
+          <div class="project-details">
+            <div class="project-detail-item">
+              <div class="project-detail-label">Project Type</div>
+              <div class="project-detail-value">Drainage & Repair</div>
+            </div>
+            <div class="project-detail-item">
+              <div class="project-detail-label">Response Time</div>
+              <div class="project-detail-value">1 Hour</div>
+            </div>
+            <div class="project-detail-item">
+              <div class="project-detail-label">Services</div>
+              <div class="project-detail-value">Drainage & CCTV</div>
+            </div>
+            <div class="project-detail-item">
+              <div class="project-detail-label">Client Rating</div>
+              <div class="project-detail-value">★★★★★</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Our Services</h3>
+          <ul>
+            <li><a href="plumbing-services.html">Plumbing Services</a></li>
+            <li><a href="bathroom-refurb.html">Bathroom Refurbishments</a></li>
+            <li><a href="kitchen-refurb.html">Kitchen Refurbishments</a></li>
+            <li><a href="loft-conversions.html">Loft Conversions</a></li>
+            <li><a href="home-extensions.html">Home Extensions</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="index.html#projects">Our Projects</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <ul>
+            <li><strong>Phone:</strong> 0200 000 0000</li>
+            <li><strong>Email:</strong> info@swbuilds.co.uk</li>
+            <li><strong>Emergency:</strong> 24/7 Available</li>
+            <li><strong>Office Hours:</strong> Mon-Fri 8am-6pm</li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Certifications</h3>
+          <ul>
+            <li>Gas Safe Registered</li>
+            <li>NICEIC Certified</li>
+            <li>CHAS Accredited</li>
+            <li>Fully Insured</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 SW Builds & Plumbing. All rights reserved. | Established 1999 | Gas Safe Registered | NICEIC Certified</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    
+    if (mobileMenuToggle && mobileNav) {
+      mobileMenuToggle.addEventListener('click', () => {
+        mobileNav.classList.toggle('active');
+      });
+    }
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+          // Close mobile menu if open
+          if (mobileNav) {
+            mobileNav.classList.remove('active');
+          }
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
+
